@@ -46,7 +46,7 @@ public class Player : MonoBehaviour {
         var targetRotation = (Vector2)findCursor;
         transform.right = Vector3.Lerp(transform.right, targetRotation, Time.deltaTime* 10f);
 
-        //transform.right = PlayerDirection;
+        //transform.right = rigidBody.velocity;
 
 
     }
