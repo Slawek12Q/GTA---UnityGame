@@ -920,7 +920,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56c53aecb209a7343ad4a79c17bd71ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Bullet: {fileID: 1932128834830232, guid: 79cefab2bf847f347977389dd9ca77d3, type: 2}
+  Bullet: {fileID: 1682950419591598, guid: 0ca1792d3d45eb541a2ac0b4c882d841, type: 2}
   Sprites:
   - {fileID: 21300000, guid: b30ccd33d28ff9646b9c3616efc7c11d, type: 3}
   - {fileID: 21300000, guid: 2d471a9ee5c21184e8b840aae41c4801, type: 3}
