@@ -25,6 +25,11 @@ public class Player : MonoBehaviour {
     {
         ChangePosition();
         ChangeRotation();
+        //if(Input.GetKey(KeyCode.Space))
+        //{
+        //    var player = FindObjectOfType<Player>();
+        //    player.transform.position = player.transform.position + Vector3.back;
+        //}
 
     }
 

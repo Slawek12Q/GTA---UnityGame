@@ -7,18 +7,18 @@ public class AgainGame : MonoBehaviour {
 
     private void OnMouseDown()
     {
-        SceneManager.LoadScene("Start");
+        SceneManager.LoadScene("Board");
         
     }
 
-    void Update()
-    {
-        if(Input.GetKey(KeyCode.Escape))
-        {
-            Application.Quit();
-        }
+    //void Update()
+    //{
+    //    if(Input.GetKey(KeyCode.Escape))
+    //    {
+    //        Application.Quit();
+    //    }
 
-    }
+    //}
 
 
 }
