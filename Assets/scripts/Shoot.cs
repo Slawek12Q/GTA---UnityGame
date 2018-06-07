@@ -62,12 +62,12 @@ public class Shoot : MonoBehaviour {
         //  var renderer = GetComponent<SpriteRenderer>();
         if (CountBullets == 0) return;
 
-        CountBullets--;
-        var bullet = Instantiate(Bullet);
-        bullet.transform.position = transform.position + transform.rotation * (Vector3)StartShoot;
-        bullet.transform.rotation = transform.rotation;
+        --CountBullets;
+        var bullet = Instantiate(Bullet, transform.position, Quaternion.identity);
+        //bullet.transform.position = transform.position + transform.rotation * (Vector3)StartShoot;
+        //bullet.transform.rotation = transform.rotation;
         var bulletRigidBody = bullet.GetComponent<Rigidbody2D>();
-        bulletRigidBody.velocity = transform.right * bulletFast;
-      //  renderer.sprite = Sprites[0];
+        bulletRigidBody.velocity=transform.right*bulletFast;
+        //  renderer.sprite = Sprites[0];
     }
 }
