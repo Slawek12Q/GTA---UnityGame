@@ -1086,9 +1086,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Bullet: {fileID: 1682950419591598, guid: 0ca1792d3d45eb541a2ac0b4c882d841, type: 2}
-  Sprites:
-  - {fileID: 21300000, guid: b30ccd33d28ff9646b9c3616efc7c11d, type: 3}
-  - {fileID: 21300000, guid: 2d471a9ee5c21184e8b840aae41c4801, type: 3}
   Time: 100
   StartShoot: {x: 0.3, y: -0.15}
   bulletFast: 8
