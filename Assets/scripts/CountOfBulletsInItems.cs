@@ -12,9 +12,9 @@ public class CountOfBulletsInItems : MonoBehaviour {
         {
             if(activator.KindOfItems == 1)
             {
-                var player = FindObjectOfType<Shoot>();
+                var player = FindObjectOfType<Player>();
                 int amount = Random.Range(1, 10);
-                player.CountBullets += amount;
+                player.BulletCount += amount;
                 Destroy(gameObject);
             }
             else if (activator.KindOfItems == 2)
