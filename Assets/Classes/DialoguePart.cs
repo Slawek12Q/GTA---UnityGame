@@ -5,18 +5,34 @@ using System.Text;
 
 namespace Assets.Classes
 {
-    class DialoguePart
+    public class DialoguePart
     {
         public string NPCTextPart { get; set; }
         public string[] Answsers = new string[4];
-        public DialoguePart[] AextDialogues = new DialoguePart[4];
-        DialoguePart()
+        public DialoguePart[] TextDialogues = new DialoguePart[4];
+        public DialoguePart()
         {
 
         }
-        DialoguePart(string npctext,string[] answers,DialoguePart[]nextDialogues)
+        public DialoguePart(string npctext,string[] answers,DialoguePart[]nextDialogues)
         {
+            NPCTextPart = npctext;
+            for (int i = 0;i< 4; i++)
+            {
+                if(answers.Length > i)
+                {
+                    Answsers[i] = answers[i];
+                }
+                else
+                {
+                    Answsers[i] = "Koniec rozmowy";
+                }
 
+                if (nextDialogues.Length > i)
+                {
+                    TextDialogues[i] = nextDialogues[i];
+                }
+            }
         }
     }
 }
