@@ -5,23 +5,23 @@ using System.Threading;
 using UnityEditor.VersionControl;
 using UnityEngine;
 
-public class Shoot : MonoBehaviour {
-
-
-    [SerializeField]
-    GameObject Bullet;
+public class Shoot : MonoBehaviour
+{
+    public GameObject Bullet;
 
     public int Time = 200;
+
     public Vector2 StartShoot;
 
-    public float bulletFast = 6f;
+    public float bulletFast = 8f;
 
     private int countBullets;
 
     public int CountBullets
     {
         get { return countBullets; }
-        set {
+        set
+        {
             countBullets = value;
 
             if (BulletChanges != null)
@@ -32,19 +32,15 @@ public class Shoot : MonoBehaviour {
 
     public event Action<int> BulletChanges; 
 
-
-    void Start () {
-
+    void Start ()
+    {
         CountBullets = 20;
-        
 	}
-	
 	
 	void Update ()
     {
 	    if(Input.GetMouseButtonDown(0))
         {
-           
             Shooting();
         }
 	}
@@ -52,15 +48,11 @@ public class Shoot : MonoBehaviour {
 
     void Shooting()
     {
- 
         if (CountBullets == 0) return;
 
         --CountBullets;
-        var bullet = Instantiate(Bullet, transform.position, Quaternion.identity);
-        bullet.transform.position = transform.position + transform.rotation * (Vector3)StartShoot;
-        bullet.transform.rotation = transform.rotation;
-        var bulletRigidBody = bullet.GetComponent<Rigidbody2D>();
-        bulletRigidBody.velocity=transform.right*bulletFast;
 
+        var bullet = Instantiate(Bullet, transform.position+transform.rotation*(Vector3)StartShoot, transform.rotation);
+        SoundManager.Instance.PlayOneShot(SoundManager.Instance.gunFire);
     }
 }
