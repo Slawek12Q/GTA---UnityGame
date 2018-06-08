@@ -328,7 +328,7 @@ Animator:
   m_GameObject: {fileID: 38944666}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9dc6d11760e61fd4782176841ba81ba5, type: 2}
+  m_Controller: {fileID: 9100000, guid: 3498c0f6dc26af44cb9ec343a37a7f9e, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -392,7 +392,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.7411765, g: 0.75294125, b: 0.7411765, a: 1}
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.3764706, g: 0.3764706, b: 0.3764706, a: 1}
     m_PressedColor: {r: 0, g: 0, b: 0, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -544,7 +544,7 @@ GameObject:
   - component: {fileID: 314756393}
   - component: {fileID: 314756392}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: DialogueManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
