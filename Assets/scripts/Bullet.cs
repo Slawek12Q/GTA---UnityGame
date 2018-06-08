@@ -6,12 +6,12 @@ public class Bullet : MonoBehaviour
 {
     private Rigidbody2D rigidbody;
 
-    public float speed = 8f;
+    public float Speed = 8f;
 	// Use this for initialization
 	void Start ()
     {
         rigidbody=GetComponent<Rigidbody2D>();
-        rigidbody.velocity=transform.right*speed;
+        rigidbody.velocity=transform.right*Speed;
     }
 	
 	// Update is called once per frame

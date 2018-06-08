@@ -15,7 +15,7 @@ public class GameInterface : MonoBehaviour
 
     void Awake()
     {
-        FindObjectOfType<Shoot>().BulletChanges += countBullets =>
+        FindObjectOfType<Player>().BulletChanges += countBullets =>
         {
             Points.text = "Bullets " + countBullets.ToString();   
         };

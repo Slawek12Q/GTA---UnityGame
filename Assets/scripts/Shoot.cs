@@ -13,8 +13,6 @@ public class Shoot : MonoBehaviour
 
     public Vector2 StartShoot;
 
-    public float bulletFast = 8f;
-
     private int countBullets;
 
     public int CountBullets

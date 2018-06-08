@@ -971,7 +971,6 @@ GameObject:
   - component: {fileID: 834629993}
   - component: {fileID: 834629992}
   - component: {fileID: 834629991}
-  - component: {fileID: 834629995}
   - component: {fileID: 834629996}
   - component: {fileID: 834629999}
   - component: {fileID: 834629998}
@@ -1014,6 +1013,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf299ce1d59562c48a0c3ad7fc8a17a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Bullet: {fileID: 1682950419591598, guid: 0ca1792d3d45eb541a2ac0b4c882d841, type: 2}
+  StartShoot: {x: 0.3, y: -0.15}
   PlayerSpeed: 2
   ChangeFast: 8
 --- !u!212 &834629993
@@ -1074,21 +1075,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &834629995
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 834629990}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56c53aecb209a7343ad4a79c17bd71ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Bullet: {fileID: 1682950419591598, guid: 0ca1792d3d45eb541a2ac0b4c882d841, type: 2}
-  Time: 200
-  StartShoot: {x: 0, y: 0}
-  bulletFast: 8
 --- !u!82 &834629996
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1510,7 +1496,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1057163225}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 89207b723b41c5449bcacb2c6fb81f2f, type: 3}
   m_Name: 
@@ -1527,7 +1513,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.017
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -2564,9 +2550,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d81772ea44519942ae9262469c5a5e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Points: {fileID: 0}
-  Health: {fileID: 0}
-  Money: {fileID: 0}
+  Points: {fileID: 722398132}
+  Health: {fileID: 1667429519}
+  Money: {fileID: 1741210644}
 --- !u!1 &2126981311
 GameObject:
   m_ObjectHideFlags: 0
