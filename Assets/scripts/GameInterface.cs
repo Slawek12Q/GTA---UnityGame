@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GameInterface : MonoBehaviour {
+public class GameInterface : MonoBehaviour
+{
 
     [SerializeField]
     Text Points;
@@ -29,12 +30,14 @@ public class GameInterface : MonoBehaviour {
             Money.text = "Piniąszki " + dollars.ToString();
         };
     }
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    void Start()
+    {
+
+    }
+
+    // Update is called once per frame
+    void Update ()
+    {
 		
 	}
 }

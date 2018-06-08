@@ -3,14 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class Player : MonoBehaviour {
+public class Player : MonoBehaviour
+{
 
     public float PlayerSpeed = 2f;
     public float ChangeFast = 8f;
     Crosshair crosshair;
 
     Rigidbody2D rigidBody;
-    void Start () {
+    void Start ()
+    {
 		
 	}
 	
@@ -18,18 +20,13 @@ public class Player : MonoBehaviour {
     {
         rigidBody = GetComponent<Rigidbody2D>();
         crosshair = FindObjectOfType<Crosshair>();
-
-
     }
 	void Update ()
     {
         ChangePosition();
         ChangeRotation();
-       
-
     }
 
-   
     private void ChangePosition()
     {
         var PlayerDirection = Vector3.zero;
