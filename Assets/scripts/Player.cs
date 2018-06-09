@@ -8,6 +8,8 @@ public class Player : MonoBehaviour
 {
     public GameObject Bullet;
 
+    public float InvulnerabilityTime = 0f;
+
     private int _bulletCount;
 
     public int BulletCount
