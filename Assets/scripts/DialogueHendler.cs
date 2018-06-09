@@ -21,7 +21,7 @@ public class DialogueHendler : MonoBehaviour {
         if (actualDialogue.TextDialogues[0] != null && actualDialogue.TextDialogues[0].NPCTextPart != null)
         {
             actualDialogue = actualDialogue.TextDialogues[0];
-            NPCText.GetComponent<Text>().text = actualDialogue.NPCTextPart;
+            StartCoroutine(typeSentence(actualDialogue.NPCTextPart,NPCText.GetComponent<Text>()));
             updateButtons();
         }
         else
@@ -30,22 +30,34 @@ public class DialogueHendler : MonoBehaviour {
     public void ChoisedOption2()
     {
         if (actualDialogue.TextDialogues[1] != null && actualDialogue.TextDialogues[1].NPCTextPart != null)
-            NPCText.GetComponent<Text>().text = actualDialogue.TextDialogues[1].NPCTextPart;
+        {
+            actualDialogue = actualDialogue.TextDialogues[1];
+            StartCoroutine(typeSentence(actualDialogue.NPCTextPart, NPCText.GetComponent<Text>()));
+            updateButtons();
+        }
         else
             NPCText.GetComponent<Text>().text = "Koniec rozmowy";
-        //W elsie koniec rozmowy
+        
     }
     public void ChoisedOption3()
     {
         if (actualDialogue.TextDialogues[2] != null && actualDialogue.TextDialogues[2].NPCTextPart != null)
-            NPCText.GetComponent<Text>().text = actualDialogue.TextDialogues[2].NPCTextPart;
+        {
+            actualDialogue = actualDialogue.TextDialogues[2];
+            StartCoroutine(typeSentence(actualDialogue.NPCTextPart, NPCText.GetComponent<Text>()));
+            updateButtons();
+        }
         else
             NPCText.GetComponent<Text>().text = "Koniec rozmowy";
     }
     public void ChoisedOption4()
     {
         if (actualDialogue.TextDialogues[3] != null && actualDialogue.TextDialogues[3].NPCTextPart != null)
-            NPCText.GetComponent<Text>().text = actualDialogue.TextDialogues[3].NPCTextPart;
+        {
+            actualDialogue = actualDialogue.TextDialogues[3];
+            StartCoroutine(typeSentence(actualDialogue.NPCTextPart, NPCText.GetComponent<Text>()));
+            updateButtons();
+        }
         else
             NPCText.GetComponent<Text>().text = "Koniec rozmowy";
         
@@ -55,22 +67,26 @@ public class DialogueHendler : MonoBehaviour {
     {
         actualDialogue = setDialogue(); 
     }
-    // Update is called once per frame
+    
     void Update () {
         if (!DialogueButton1.enabled && !DialogueButton2.enabled && !DialogueButton3.enabled && !DialogueButton4.enabled)
             Debug.Log("Koniec Gadania");
+        //tutaj ma być przejście do innej sceny
 	}
 
     private DialoguePart setDialogue()
     {
         DialoguePart result;
         string[] buttons = { "Łoddawaj passssata złodzjeju!!!", "Somsiad, jo ci dam somsiada łajdaku!", "Teraz sopbie pogadamy, nie masz gdzie uciec.", "Wrr (popraw skarpety w sandałach)" };
+        string[] butonsSecondPart = { "Passat to nie wszystko somsiedzie.", "Może i tak ale n ciebie nawet bez pasata jestem z mocny!", "Łoż ty złodzjeju, jo ci dom kradzejstwo!", "Ty mi tu nie opwiadaj kocmołuchów, bo Grarzynka bigosu nagotowała i stygnie!" };
+        DialoguePart[] secondDialoguePart = { new DialoguePart(), new DialoguePart(), new DialoguePart(), new DialoguePart() };
         DialoguePart[] dialogs = {
             new DialoguePart(),
-            new DialoguePart(),
+            new DialoguePart("No co mi zrobisz, bez passata nie masz żadnej mocy... BUAHAHAHAHAHA!",butonsSecondPart,secondDialoguePart),
             new DialoguePart(),
             new DialoguePart() };
         dialogs[0].NPCTextPart = "A więc tak, w takim razie niech ta cienciwa zaspiewa tango.";
+        dialogs[2].NPCTextPart = "Ja mam passata, ty nie masz nic do gadania!";
         result = new DialoguePart("Ło nie, tuż to somsiad!", buttons, dialogs);
         NPCText.text = result.NPCTextPart;
         DialogueOption1.text = result.Answsers[0];
@@ -111,6 +127,16 @@ public class DialogueHendler : MonoBehaviour {
                 DialogueButton4.enabled = false;
                 DialogueOption4.text = "";
             }
+        }
+    }
+
+    IEnumerator typeSentence(string text,Text toType)
+    {
+        toType.text = "";
+        foreach(char letter in text.ToCharArray())
+        {
+            toType.text += letter;
+            yield return null;
         }
     }
     
