@@ -87,7 +87,7 @@ public class Player : MonoBehaviour
 
         --BulletCount;
 
-        var bullet = Instantiate(Bullet, transform.position+transform.rotation*(Vector3)StartShoot, transform.rotation);
+        Instantiate(Bullet, transform.position+transform.rotation*(Vector3)StartShoot, transform.rotation);
         SoundManager.Instance.PlayOneShot(SoundManager.Instance.gunFire);
     }
 }

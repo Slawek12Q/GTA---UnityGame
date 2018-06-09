@@ -19,9 +19,11 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update ()
     {
-        Vector3 targ = GameObject.FindGameObjectWithTag("Player").transform.position;
+        var player = GameObject.FindGameObjectWithTag("Player");
 
-        if(targ==null) return;
+        if(player==null) return;
+
+        Vector3 targ = player.transform.position;
 
         targ.z=0f;
 
@@ -42,7 +44,7 @@ public class Enemy : MonoBehaviour
             if(player.InvulnerabilityTime<Time.time)
             {
                 collision.gameObject.GetComponent<HP>().HP_character-=1;
-                player.InvulnerabilityTime=Time.time+3;
+                player.InvulnerabilityTime=Time.time+2;
             }
         }
     }
