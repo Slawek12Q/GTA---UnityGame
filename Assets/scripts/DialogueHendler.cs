@@ -16,6 +16,8 @@ public class DialogueHendler : MonoBehaviour
     public Button DialogueButton3;
     public Button DialogueButton4;
     private DialoguePart actualDialogue = null;
+    private bool end = false;
+    private bool fight = true;
 
     public void ChoisedOption1()
     {
@@ -26,7 +28,9 @@ public class DialogueHendler : MonoBehaviour
             updateButtons();
         }
         else
-            NPCText.GetComponent<Text>().text = "Koniec rozmowy";
+        {
+            fightOrNot();
+        }
     }
     public void ChoisedOption2()
     {
@@ -37,7 +41,9 @@ public class DialogueHendler : MonoBehaviour
             updateButtons();
         }
         else
-            NPCText.GetComponent<Text>().text = "Koniec rozmowy";
+        {
+            fightOrNot();
+        }
 
     }
     public void ChoisedOption3()
@@ -49,7 +55,9 @@ public class DialogueHendler : MonoBehaviour
             updateButtons();
         }
         else
-            NPCText.GetComponent<Text>().text = "Koniec rozmowy";
+        {
+            fightOrNot();
+        }
     }
     public void ChoisedOption4()
     {
@@ -60,7 +68,9 @@ public class DialogueHendler : MonoBehaviour
             updateButtons();
         }
         else
-            NPCText.GetComponent<Text>().text = "Koniec rozmowy";
+        {
+            fightOrNot();
+        }
 
     }
 
@@ -71,8 +81,12 @@ public class DialogueHendler : MonoBehaviour
 
     void Update()
     {
-        if (!DialogueButton1.enabled && !DialogueButton2.enabled && !DialogueButton3.enabled && !DialogueButton4.enabled)
-            Debug.Log("Koniec Gadania");
+        if (end || (!DialogueButton1.enabled && !DialogueButton2.enabled && !DialogueButton3.enabled && !DialogueButton4.enabled))
+        {
+            end = true;
+            DialogueOption1.text = "Zakończ rozmowę.";
+            DialogueButton1.enabled = true;
+        }
         //tutaj ma być przejście do innej sceny
     }
 
@@ -91,6 +105,7 @@ public class DialogueHendler : MonoBehaviour
         secondDialoguePart[0].NPCTextPart = "Ale wszystko bez passata to nic. Mam dosyć tych twojch gierek!";
         secondDialoguePart[1].NPCTextPart = "DOŚĆ! To twój koniec!";
         secondDialoguePart[2].NPCTextPart = "Niech zadecyduje próba walki, zobaczymy kto jest prawdziwym złodzjejem!";
+        secondDialoguePart[3].pacificChoice = true;
         DialoguePart[] dialogs = {
             new DialoguePart(),
             new DialoguePart("No co mi zrobisz, bez passata nie masz żadnej mocy... BUAHAHAHAHAHA!",butonsSecondPart,secondDialoguePart),
@@ -112,6 +127,8 @@ public class DialogueHendler : MonoBehaviour
     {
         if (actualDialogue.Answsers.Length == 4)
         {
+            if (actualDialogue.pacificChoice)
+                fight = false;
             if (actualDialogue.Answsers[0] != null)
                 DialogueOption1.text = actualDialogue.Answsers[0];
             else
@@ -150,6 +167,20 @@ public class DialogueHendler : MonoBehaviour
         {
             toType.text += letter;
             yield return null;
+        }
+    }
+
+    private void fightOrNot()
+    {
+        if(fight)
+        {
+            //scena id walki
+            Debug.Log("Walka");
+        }
+        else
+        {
+            //scena od passata
+            Debug.Log("jazda passatem");
         }
     }
 

@@ -10,6 +10,7 @@ namespace Assets.Classes
         public string NPCTextPart { get; set; }
         public string[] Answsers = new string[4];
         public DialoguePart[] TextDialogues = new DialoguePart[4];
+        public bool pacificChoice = false;
         public DialoguePart()
         {
 
