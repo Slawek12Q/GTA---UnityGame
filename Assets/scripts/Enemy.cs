@@ -19,10 +19,15 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update ()
     {
-        Vector2 current = transform.position;
-        var direction = GameObject.FindGameObjectWithTag("Player").transform.position;
-        var angle = Mathf.Atan2(direction.y, direction.x)*Mathf.Rad2Deg;
-        transform.rotation=Quaternion.AngleAxis(angle, Vector3.forward);
+        Vector3 targ = GameObject.FindGameObjectWithTag("Player").transform.position;
+        targ.z=0f;
+
+        Vector3 objectPos = transform.position;
+        targ.x=targ.x-objectPos.x;
+        targ.y=targ.y-objectPos.y;
+
+        float angle = Mathf.Atan2(targ.y, targ.x)*Mathf.Rad2Deg;
+        transform.rotation=Quaternion.Euler(new Vector3(0, 0, angle));
         rigidbody.velocity=transform.right*speed;
     }
 
