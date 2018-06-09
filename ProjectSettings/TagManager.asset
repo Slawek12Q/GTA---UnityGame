@@ -40,6 +40,15 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 245137687
+    locked: 0
+  - name: House
+    uniqueID: 623783511
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Player
+    uniqueID: 300976615
     locked: 0
