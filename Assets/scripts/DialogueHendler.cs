@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Assets.Classes;
+using UnityEngine.SceneManagement;
+
 public class DialogueHendler : MonoBehaviour
 {
 
@@ -98,7 +100,7 @@ public class DialogueHendler : MonoBehaviour
         string[] butonsFinalPart = { "Somsiad to jednak swój chłop!", "To może jeszce po maluszku na zgodę.. HEHE.", "Nie poznaje somsida, tuz to szlachetne zachowanie.", "(Odbierz kluczyki w milczeniu)......" };
         DialoguePart[] finalDialoguePart = { new DialoguePart(), new DialoguePart(), new DialoguePart(), new DialoguePart() };
         finalDialoguePart[0].NPCTextPart = "Trzymaj się!";
-        finalDialoguePart[1].NPCTextPart = "Halinka by mnie z chałupy wywaliła, mówiła że ostarni raz to wytrzymuje takie zachowanie także w tym tygodniu to lipa z piciem. Może kiedy indziej, narzie spadam.";
+        finalDialoguePart[1].NPCTextPart = "Halinka by mnie z chałupy wywaliła, mówiła że ostarni raz to wytrzymuje takie zachowanie także w tym tygodniu to lipa z piciem. Może kiedy indziej, narazie spadam.";
         finalDialoguePart[2].NPCTextPart = "Każdy ma swoje ideały somsiedzie, żegnaj.";
         finalDialoguePart[3].NPCTextPart = "........................";
         DialoguePart[] secondDialoguePart = { new DialoguePart(), new DialoguePart(), new DialoguePart(), new DialoguePart("A więć nie jesteś taki za jakiego cię wziołem... stawieasz bigos nad materialne korzysci, dobrze więc proszę oto kluczyki do twojego passata.", butonsFinalPart, finalDialoguePart) };
@@ -174,13 +176,11 @@ public class DialogueHendler : MonoBehaviour
     {
         if(fight)
         {
-            //scena id walki
-            Debug.Log("Walka");
+            Application.LoadLevel("Board");
         }
         else
         {
-            //scena od passata
-            Debug.Log("jazda passatem");
+            Application.LoadLevel("main");
         }
     }
 
