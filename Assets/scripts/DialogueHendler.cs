@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Assets.Classes;
-public class DialogueHendler : MonoBehaviour {
+public class DialogueHendler : MonoBehaviour
+{
 
     public Text NPCText;
     public Text DialogueOption1;
@@ -21,7 +22,7 @@ public class DialogueHendler : MonoBehaviour {
         if (actualDialogue.TextDialogues[0] != null && actualDialogue.TextDialogues[0].NPCTextPart != null)
         {
             actualDialogue = actualDialogue.TextDialogues[0];
-            StartCoroutine(typeSentence(actualDialogue.NPCTextPart,NPCText.GetComponent<Text>()));
+            StartCoroutine(typeSentence(actualDialogue.NPCTextPart, NPCText.GetComponent<Text>()));
             updateButtons();
         }
         else
@@ -37,7 +38,7 @@ public class DialogueHendler : MonoBehaviour {
         }
         else
             NPCText.GetComponent<Text>().text = "Koniec rozmowy";
-        
+
     }
     public void ChoisedOption3()
     {
@@ -60,19 +61,20 @@ public class DialogueHendler : MonoBehaviour {
         }
         else
             NPCText.GetComponent<Text>().text = "Koniec rozmowy";
-        
+
     }
-    
+
     void Start()
     {
-        actualDialogue = setDialogue(); 
+        actualDialogue = setDialogue();
     }
-    
-    void Update () {
+
+    void Update()
+    {
         if (!DialogueButton1.enabled && !DialogueButton2.enabled && !DialogueButton3.enabled && !DialogueButton4.enabled)
             Debug.Log("Koniec Gadania");
         //tutaj ma być przejście do innej sceny
-	}
+    }
 
     private DialoguePart setDialogue()
     {
@@ -87,6 +89,7 @@ public class DialogueHendler : MonoBehaviour {
             new DialoguePart() };
         dialogs[0].NPCTextPart = "A więc tak, w takim razie niech ta cienciwa zaspiewa tango.";
         dialogs[2].NPCTextPart = "Ja mam passata, ty nie masz nic do gadania!";
+        dialogs[3].NPCTextPart = "(Podrzuca kluczyki od passata i wkłada je do kieszeni) Rozjade cie jak passat rozjezdza kałuże!";
         result = new DialoguePart("Ło nie, tuż to somsiad!", buttons, dialogs);
         NPCText.text = result.NPCTextPart;
         DialogueOption1.text = result.Answsers[0];
@@ -102,7 +105,8 @@ public class DialogueHendler : MonoBehaviour {
         {
             if (actualDialogue.Answsers[0] != null)
                 DialogueOption1.text = actualDialogue.Answsers[0];
-            else { 
+            else
+            {
                 DialogueButton1.enabled = false;
                 DialogueOption1.text = "";
             }
@@ -130,14 +134,14 @@ public class DialogueHendler : MonoBehaviour {
         }
     }
 
-    IEnumerator typeSentence(string text,Text toType)
+    IEnumerator typeSentence(string text, Text toType)
     {
         toType.text = "";
-        foreach(char letter in text.ToCharArray())
+        foreach (char letter in text.ToCharArray())
         {
             toType.text += letter;
             yield return null;
         }
     }
-    
+
 }
