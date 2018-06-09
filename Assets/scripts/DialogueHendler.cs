@@ -20,59 +20,64 @@ public class DialogueHendler : MonoBehaviour
     private DialoguePart actualDialogue = null;
     private bool end = false;
     private bool fight = true;
+    private bool isTyping = false;
 
     public void ChoisedOption1()
     {
-        if (actualDialogue.TextDialogues[0] != null && actualDialogue.TextDialogues[0].NPCTextPart != null)
-        {
-            actualDialogue = actualDialogue.TextDialogues[0];
-            StartCoroutine(typeSentence(actualDialogue.NPCTextPart, NPCText.GetComponent<Text>()));
-            updateButtons();
-        }
-        else
-        {
-            fightOrNot();
-        }
+        if (!isTyping)
+            if (actualDialogue.TextDialogues[0] != null && actualDialogue.TextDialogues[0].NPCTextPart != null)
+            {
+                actualDialogue = actualDialogue.TextDialogues[0];
+                StartCoroutine(typeSentence(actualDialogue.NPCTextPart, NPCText.GetComponent<Text>()));
+                updateButtons();
+            }
+            else
+            {
+                fightOrNot();
+            }
     }
     public void ChoisedOption2()
     {
-        if (actualDialogue.TextDialogues[1] != null && actualDialogue.TextDialogues[1].NPCTextPart != null)
-        {
-            actualDialogue = actualDialogue.TextDialogues[1];
-            StartCoroutine(typeSentence(actualDialogue.NPCTextPart, NPCText.GetComponent<Text>()));
-            updateButtons();
-        }
-        else
-        {
-            fightOrNot();
-        }
+        if(!isTyping)
+            if (actualDialogue.TextDialogues[1] != null && actualDialogue.TextDialogues[1].NPCTextPart != null)
+            {
+                actualDialogue = actualDialogue.TextDialogues[1];
+                StartCoroutine(typeSentence(actualDialogue.NPCTextPart, NPCText.GetComponent<Text>()));
+                updateButtons();
+            }
+            else
+            {
+                fightOrNot();
+            }
 
     }
     public void ChoisedOption3()
     {
-        if (actualDialogue.TextDialogues[2] != null && actualDialogue.TextDialogues[2].NPCTextPart != null)
-        {
-            actualDialogue = actualDialogue.TextDialogues[2];
-            StartCoroutine(typeSentence(actualDialogue.NPCTextPart, NPCText.GetComponent<Text>()));
-            updateButtons();
-        }
-        else
-        {
-            fightOrNot();
-        }
+        if (!isTyping)
+            if (actualDialogue.TextDialogues[2] != null && actualDialogue.TextDialogues[2].NPCTextPart != null)
+            {
+                actualDialogue = actualDialogue.TextDialogues[2];
+                StartCoroutine(typeSentence(actualDialogue.NPCTextPart, NPCText.GetComponent<Text>()));
+                updateButtons();
+            }
+            else
+            {
+                fightOrNot();
+            }
     }
     public void ChoisedOption4()
     {
-        if (actualDialogue.TextDialogues[3] != null && actualDialogue.TextDialogues[3].NPCTextPart != null)
-        {
-            actualDialogue = actualDialogue.TextDialogues[3];
-            StartCoroutine(typeSentence(actualDialogue.NPCTextPart, NPCText.GetComponent<Text>()));
-            updateButtons();
-        }
-        else
-        {
-            fightOrNot();
-        }
+        if (!isTyping)
+            if (actualDialogue.TextDialogues[3] != null && actualDialogue.TextDialogues[3].NPCTextPart != null)
+            {
+                actualDialogue = actualDialogue.TextDialogues[3];
+                StartCoroutine(typeSentence(actualDialogue.NPCTextPart, NPCText.GetComponent<Text>()));
+                updateButtons();
+            }
+            else
+            {
+                fightOrNot();
+            }
 
     }
 
@@ -100,7 +105,7 @@ public class DialogueHendler : MonoBehaviour
         string[] butonsFinalPart = { "Somsiad to jednak swój chłop!", "To może jeszce po maluszku na zgodę.. HEHE.", "Nie poznaje somsida, tuz to szlachetne zachowanie.", "(Odbierz kluczyki w milczeniu)......" };
         DialoguePart[] finalDialoguePart = { new DialoguePart(), new DialoguePart(), new DialoguePart(), new DialoguePart() };
         finalDialoguePart[0].NPCTextPart = "Trzymaj się!";
-        finalDialoguePart[1].NPCTextPart = "Halinka by mnie z chałupy wywaliła, mówiła że ostarni raz to wytrzymuje takie zachowanie także w tym tygodniu to lipa z piciem. Może kiedy indziej, narazie spadam.";
+        finalDialoguePart[1].NPCTextPart = "Halinka by mnie z chałupy wywaliła, mówiła że ostatni raz to wytrzymuje takie zachowanie także w tym tygodniu to lipa z piciem. Może kiedy indziej, narazie spadam.";
         finalDialoguePart[2].NPCTextPart = "Każdy ma swoje ideały somsiedzie, żegnaj.";
         finalDialoguePart[3].NPCTextPart = "........................";
         DialoguePart[] secondDialoguePart = { new DialoguePart(), new DialoguePart(), new DialoguePart(), new DialoguePart("A więć nie jesteś taki za jakiego cię wziołem... stawieasz bigos nad materialne korzysci, dobrze więc proszę oto kluczyki do twojego passata.", butonsFinalPart, finalDialoguePart) };
@@ -164,12 +169,14 @@ public class DialogueHendler : MonoBehaviour
 
     IEnumerator typeSentence(string text, Text toType)
     {
+        isTyping = true;
         toType.text = "";
         foreach (char letter in text.ToCharArray())
         {
             toType.text += letter;
             yield return null;
         }
+        isTyping = false;
     }
 
     private void fightOrNot()
