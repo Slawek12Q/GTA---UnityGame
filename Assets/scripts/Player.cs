@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class Player : MonoBehaviour
@@ -39,7 +40,13 @@ public class Player : MonoBehaviour
 
     void Start ()
     {
-        BulletCount=20;
+        FindObjectOfType<Player>().GetComponent<HP>().Killed += () =>
+        {
+            SceneManager.LoadScene("GameOver");
+            Destroy(gameObject);
+        };
+        BulletCount =20;
+
     }
 	
 	private void Awake ()
