@@ -63,11 +63,17 @@ public class ItemsWhichICanCollect : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
+        if (collider.gameObject.GetComponent<Player>() == null)
+            return;
+
         ActiveItem = true;
     }
 
     private void OnTriggerExit2D (Collider2D collider)
     {
+        if (collider.gameObject.GetComponent<Player>() == null)
+            return;
+
         ActiveItem = false;
     }
 
