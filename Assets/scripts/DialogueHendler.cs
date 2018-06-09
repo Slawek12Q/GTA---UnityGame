@@ -183,11 +183,11 @@ public class DialogueHendler : MonoBehaviour
     {
         if(fight)
         {
-            Application.LoadLevel("Board");
+            SceneManager.LoadScene("Board");
         }
         else
         {
-            Application.LoadLevel("main");
+            SceneManager.LoadScene("main");
         }
     }
 
