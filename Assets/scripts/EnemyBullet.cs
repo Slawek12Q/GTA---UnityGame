@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class EnemyBullet : MonoBehaviour
 {
     private new Rigidbody2D rigidbody;
 
-    public float Speed = 8f;
+    public float Speed = 6f;
 
-	void Start ()
+    void Start ()
     {
         rigidbody=GetComponent<Rigidbody2D>();
         rigidbody.velocity=transform.right*Speed;

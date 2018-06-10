@@ -11,14 +11,12 @@ public class EnemySpawner : MonoBehaviour
     public float maxSpawnRangeTime = 3.0f;
     
     public float baseSpawnWaitTime = 3.0f;
-
-    // Use this for initialization
+    
     void Start ()
     {
         baseSpawnWaitTime+=Random.Range(minSpawnRangeTime, maxSpawnRangeTime);
 	}
 	
-	// Update is called once per frame
 	void Update ()
     {
 		if(Time.time>baseSpawnWaitTime)
