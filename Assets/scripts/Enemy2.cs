@@ -39,13 +39,13 @@ public class Enemy2 : MonoBehaviour
         if(Vector3.Distance(transform.position, player.transform.position)>=MinDistance)
         {
             rigidbody.velocity=transform.right*Speed;
-            if(Vector3.Distance(transform.position, player.transform.position)<=MaxDistance)
+        }
+        if(Vector3.Distance(transform.position, player.transform.position)<=MaxDistance)
+        {
+            if(Time.time>Cooldown)
             {
-                if(Time.time>Cooldown)
-                {
-                    Instantiate(Bullet, transform.position+transform.rotation*new Vector2(0.3f, -0.15f), transform.rotation);
-                    Cooldown=Time.time+5;
-                }
+                Instantiate(Bullet, transform.position+transform.rotation*new Vector2(0.3f, -0.15f), transform.rotation);
+                Cooldown=Time.time+5;
             }
         }
     }

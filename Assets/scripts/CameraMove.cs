@@ -12,14 +12,12 @@ public class CameraMove : MonoBehaviour
     public float minY;
     public float maxX;
     public float maxY;
-
-    // Use this for initialization
+    
     void Start()
     {
 
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
 
@@ -33,12 +31,9 @@ public class CameraMove : MonoBehaviour
             
             var vect3 = new Vector3(newPos.x, newPos.y, -10f);
 
-            // Clamp gets the cameras x position and clamps
-            // it between the min and max value
             var clampX = Mathf.Clamp(vect3.x, minX, maxX);
             var clampY = Mathf.Clamp(vect3.y, minY, maxY);
 
-            // Move the camera
             transform.position=new Vector3(clampX, clampY, -10f);
         }
     }
