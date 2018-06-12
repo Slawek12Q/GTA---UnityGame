@@ -160,7 +160,7 @@ public class DialogueHendler : MonoBehaviour
     {
         if(fight)
         {
-            SceneManager.LoadScene("Board");
+            SceneManager.LoadScene("Board2");
         }
         else
         {
