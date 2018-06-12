@@ -7,8 +7,9 @@ public class AgainGame : MonoBehaviour {
 
     private void OnMouseDown()
     {
-        SceneManager.LoadScene("Board");
-        
+        //SceneManager.LoadScene("Board");
+        Application.Quit();
+
     }
 
     //void Update()

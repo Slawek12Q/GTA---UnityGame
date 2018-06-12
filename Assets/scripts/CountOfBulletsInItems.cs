@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(ItemsWhichICanCollect))]
 public class CountOfBulletsInItems : MonoBehaviour
@@ -56,6 +57,10 @@ public class CountOfBulletsInItems : MonoBehaviour
                 var player = FindObjectOfType<Player>();
                 player.kluczyki = true;
                 Destroy(gameObject);
+            }
+            else if (activator.KindOfItems == 8)
+            {
+                SceneManager.LoadScene("Dialogue");
             }
         };
 	}
