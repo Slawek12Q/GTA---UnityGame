@@ -8,6 +8,7 @@ TagManager:
   - Crosshair
   - EnemySpawner
   - EnemySpawner2
+  - Somsiad
   layers:
   - Default
   - TransparentFX
