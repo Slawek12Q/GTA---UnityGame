@@ -96,6 +96,7 @@ MonoBehaviour:
   MaxDistance: 8
   Cooldown: 5
   Sprite: {fileID: 0}
+  Spawner: {fileID: 1595716767253270, guid: 5288e8a735ef9904782c2cf40d218e09, type: 2}
 --- !u!114 &114832274057338784
 MonoBehaviour:
   m_ObjectHideFlags: 1

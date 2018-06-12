@@ -6,23 +6,36 @@ public class EnemySpawner : MonoBehaviour
 {
     public GameObject enemy;
 
-    public float minSpawnRangeTime = 1.0f;
+    public float MinSpawnRangeTime = 1.0f;
     
-    public float maxSpawnRangeTime = 3.0f;
+    public float MaxSpawnRangeTime = 3.0f;
     
-    public float baseSpawnWaitTime = 3.0f;
-    
+    public float BaseSpawnWaitTime = 3.0f;
+
+    private List<GameObject> spawns=new List<GameObject>();
+
     void Start ()
     {
-        baseSpawnWaitTime+=Random.Range(minSpawnRangeTime, maxSpawnRangeTime);
+        BaseSpawnWaitTime+=Random.Range(MinSpawnRangeTime, MaxSpawnRangeTime);
 	}
 	
 	void Update ()
     {
-		if(Time.time>baseSpawnWaitTime)
+		if(Time.time>BaseSpawnWaitTime)
         {
-            baseSpawnWaitTime+=Random.Range(minSpawnRangeTime, maxSpawnRangeTime);
-            Instantiate(enemy, transform.position, Quaternion.identity);
+            for(int i = 0;i<spawns.Count;++i)
+            {
+                if(spawns[i]==null)
+                {
+                    spawns.RemoveAt(i);
+                    --i;
+                }
+            }
+            BaseSpawnWaitTime+=Random.Range(MinSpawnRangeTime, MaxSpawnRangeTime);
+            if(spawns.Count<7)
+            {
+                spawns.Add(Instantiate(enemy, transform.position, Quaternion.identity));
+            }
         }
 	}
 }

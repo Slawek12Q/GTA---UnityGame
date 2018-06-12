@@ -26,7 +26,7 @@ GameObject:
   - component: {fileID: 114292137871013752}
   - component: {fileID: 61679343814571410}
   m_Layer: 0
-  m_Name: Bullet 1
+  m_Name: Bullet1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -96,12 +96,12 @@ AudioSource:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1682950419591598}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 0d18ef9d3ba00e64bacc316a2cf708d8, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.18
+  m_Volume: 0.103
   m_Pitch: 1
   Loop: 0
   Mute: 0

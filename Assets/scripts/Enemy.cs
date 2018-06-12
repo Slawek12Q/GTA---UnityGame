@@ -8,7 +8,9 @@ public class Enemy : MonoBehaviour
     private new Rigidbody2D rigidbody;
 
     public float Speed = 3f;
+
     Vector2 GoalPosition;
+
     public GameObject [] Sprite;
 
     void Start ()
@@ -23,9 +25,7 @@ public class Enemy : MonoBehaviour
             items.GetComponent<ItemsWhichICanCollect>().KindOfItems = UnityEngine.Random.Range(1, 3);
             Destroy(gameObject);
         };
-
     }
-
 
     void Update ()
     {
@@ -38,8 +38,6 @@ public class Enemy : MonoBehaviour
         rigidbody.velocity = Vector3.Lerp(rigidbody.velocity, objectSpeed, Time.deltaTime);
 
         transform.right = (Vector2)objectPos;
-       
-
 
         //float angle = Mathf.Atan2(targ.y, targ.x)*Mathf.Rad2Deg;
         //transform.rotation=Quaternion.Euler(new Vector3(0, 0, angle));
@@ -48,7 +46,6 @@ public class Enemy : MonoBehaviour
 
     IEnumerator ChangeActualPosition()
     {
-
         while (true)
         {
             GoalPosition = (Vector2)transform.position + UnityEngine.Random.insideUnitCircle * 10f;
@@ -69,8 +66,8 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    private void OnBecameInvisible()
+    private void OnDestroy()
     {
-        Destroy(gameObject);
+
     }
 }

@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 114996772364459264}
   m_Layer: 0
   m_Name: EnemySpawner
-  m_TagString: Untagged
+  m_TagString: EnemySpawner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -34,7 +34,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1870526922439638}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.260002, y: 2.040001, z: 3}
+  m_LocalPosition: {x: -12.279999, y: 5.5999985, z: 4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -52,6 +52,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 0}
-  minSpawnRangeTime: 1
-  maxSpawnRangeTime: 3
-  baseSpawnWaitTime: 3
+  MinSpawnRangeTime: 1
+  MaxSpawnRangeTime: 3
+  BaseSpawnWaitTime: 3

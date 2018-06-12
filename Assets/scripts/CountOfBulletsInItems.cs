@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 [RequireComponent(typeof(ItemsWhichICanCollect))]
-public class CountOfBulletsInItems : MonoBehaviour {
+public class CountOfBulletsInItems : MonoBehaviour
+{
 
 	void Start ()
     {
@@ -45,8 +47,8 @@ public class CountOfBulletsInItems : MonoBehaviour {
             }
             else if (activator.KindOfItems == 6)
             {
-                var player = FindObjectOfType<Player>();
-                player.GetComponent<Bullet>().Speed = 12;
+                var bullet = AssetDatabase.LoadAssetAtPath("Assets/prefabs/Bullet1.prefab", typeof(GameObject)) as GameObject;
+                bullet.GetComponent<Bullet>().Speed=12;
                 Destroy(gameObject);
             }
             else if (activator.KindOfItems == 7)
@@ -55,10 +57,7 @@ public class CountOfBulletsInItems : MonoBehaviour {
                 player.kluczyki = true;
                 Destroy(gameObject);
             }
-
-
         };
-
 	}
 	
 	void Update () {

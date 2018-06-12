@@ -17,7 +17,7 @@ public class Enemy2 : MonoBehaviour
     public float Cooldown = 5f;
 
     public Sprite Sprite;
-    
+
     void Start ()
     {
         rigidbody=GetComponent<Rigidbody2D>();
@@ -48,5 +48,10 @@ public class Enemy2 : MonoBehaviour
                 Cooldown=Time.time+5;
             }
         }
+    }
+
+    private void OnDestroy()
+    {
+
     }
 }
