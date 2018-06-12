@@ -6,17 +6,17 @@ public class Bullet : MonoBehaviour
 {
     private new Rigidbody2D rigidbody;
 
-    public float Speed = 8f;
+    public int Speed = 8;
 
 	void Start ()
     {
         rigidbody=GetComponent<Rigidbody2D>();
-        rigidbody.velocity=transform.right*Speed;
+       rigidbody.velocity=transform.right*Speed;
     }
 	
 	void Update ()
     {
-		
+		 
 	}
 
     private void OnBecameInvisible()

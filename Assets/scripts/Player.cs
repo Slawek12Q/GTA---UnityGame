@@ -9,8 +9,10 @@ public class Player : MonoBehaviour
 {
     public GameObject Bullet;
 
+    public int CountOfBullets = 20;
     public float InvulnerabilityTime = 0f;
-
+    public int Speed = 8;
+    public bool kluczyki = false;
     private int _bulletCount;
 
     public int BulletCount
@@ -45,7 +47,7 @@ public class Player : MonoBehaviour
             SceneManager.LoadScene("GameOver");
             Destroy(gameObject);
         };
-        BulletCount=20;
+        BulletCount=CountOfBullets;
 
     }
 	
@@ -91,10 +93,11 @@ public class Player : MonoBehaviour
     private void Shoot()
     {
         if(BulletCount==0) return;
-
+      
         --BulletCount;
 
         SoundManager.Instance.PlayOneShot(SoundManager.Instance.gunFire);
         Instantiate(Bullet, transform.position+transform.rotation*(Vector3)StartShoot, transform.rotation);
+        
     }
 }

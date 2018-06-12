@@ -187,6 +187,7 @@ public class DialogueHendler : MonoBehaviour
         }
         else
         {
+            FindObjectOfType<Player>().kluczyki = true;
             SceneManager.LoadScene("main");
         }
     }

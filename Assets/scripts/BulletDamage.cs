@@ -21,7 +21,7 @@ public class BulletDamage : MonoBehaviour {
         var health = collision.gameObject.GetComponent<HP>();
 
         if (health != null)
-            health.HP_character -= 1;
+            health.HP_character -= Damage;
 
         Destroy(gameObject);
     }

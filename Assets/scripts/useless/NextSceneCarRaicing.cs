@@ -13,7 +13,8 @@ public class NextSceneCarRaicing : MonoBehaviour {
         var activator = GetComponent<ItemsWhichICanCollect>();
         activator.OnActivate += () =>
         {
-            SceneManager.LoadScene("Start");
+            if(FindObjectOfType<Player>().kluczyki == true)
+                SceneManager.LoadScene("Start");
         };
     }
 	

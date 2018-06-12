@@ -24,14 +24,39 @@ public class CountOfBulletsInItems : MonoBehaviour {
                 player.HP_character += amount;
                 Destroy(gameObject);
             }
-            else
+            else if (activator.KindOfItems == 3)
             {
                 var player = FindObjectOfType<Piniąszki>();
                 int amount = Random.Range(10, 200);
                 player.Dollars += amount;
                 Destroy(gameObject);
             }
-           
+            else if (activator.KindOfItems == 4)
+            {
+                var player = FindObjectOfType<Player>();
+                player.PlayerSpeed = 3;
+                Destroy(gameObject);
+            }
+            else if (activator.KindOfItems == 5)
+            {
+                var player = FindObjectOfType<BulletDamage>();
+                player.Damage = 2;
+                Destroy(gameObject);
+            }
+            else if (activator.KindOfItems == 6)
+            {
+                var player = FindObjectOfType<Player>();
+                player.GetComponent<Bullet>().Speed = 12;
+                Destroy(gameObject);
+            }
+            else if (activator.KindOfItems == 7)
+            {
+                var player = FindObjectOfType<Player>();
+                player.kluczyki = true;
+                Destroy(gameObject);
+            }
+
+
         };
 
 	}
